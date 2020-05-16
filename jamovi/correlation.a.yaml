@@ -1,0 +1,105 @@
+---
+name:  correlation
+title: Correlation
+version: '1.0.0'
+jas: '1.2'
+menuGroup: Correlations
+
+options:
+    - name: data
+      type: Data
+
+    - name: vars
+      title: Variables
+      type: Variables
+      suggested:
+         - nominal
+         - continuous
+      permitted:
+        - numeric
+
+    - name: ctrlvars
+      title: Controlling for
+      type: Variables
+      suggested:
+         - continuous
+      permitted:
+        - numeric
+
+    - name: personCoef
+      title: Pearson
+      type: Bool
+      default: true
+      description:
+          R: >
+            `TRUE` (default) or `FALSE`, provide Pearson
+
+    - name: spearmanCoef
+      title: Spearman
+      type: Bool
+      default: false
+      description:
+          R: >
+            `TRUE` (default) or `FALSE`, provide Spearman
+
+    - name: partialCoef
+      title: Partial
+      type: Bool
+      default: false
+      description:
+          R: >
+            `TRUE` (default) or `FALSE`, provide Partial
+
+    - name: TetrachoricCoef
+      title: Tetrachoric
+      type: Bool
+      default: false
+      description:
+          R: >
+            `TRUE` (default) or `FALSE`, provide Tetrachoric
+
+    - name: PolychoricCoef
+      title: Polychoric
+      type: Bool
+      default: false
+      description:
+          R: >
+            `TRUE` (default) or `FALSE`, provide Polychoric
+
+    - name: BiserialCoef
+      title: Biserial
+      type: Bool
+      default: false
+      description:
+          R: >
+            `TRUE` (default) or `FALSE`, provide Biserial
+
+    - name: sidSig
+      title: Test of Significance
+      type: List
+      options:
+        - title: One-tailed
+          name:  onetailed
+        - title: Two-tailed
+          name:  twotailed
+      default: twotailed
+
+    - name: GaussianPlot
+      title: Gaussian Graphical Model
+      type: Bool
+      default: false
+      description:
+          R: >
+            `TRUE` (default) or `FALSE`, provide correlation plot
+
+    - name: shwSig
+      title: Display significance levels
+      type: Bool
+      default: true
+
+    - name: flgSig
+      title: Flag significant correlations
+      type: Bool
+      default: true
+
+...

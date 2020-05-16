@@ -1,0 +1,16 @@
+Package: Correlations
+Type: Package
+Title: Correlations suite for jamovi
+Version: 0.1.0
+Date: 2020-05-17
+Author: Hyunsoo Seol
+Maintainer: Hyunsoo Seol <snow@cau.ac.kr>
+Description: Computing various kinds of correlations, such as partial correlation
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.0
+Depends: R (>= 4.0.0)
+Imports: stats, jmvcore (>= 1.0.8), R6, ggplot2, correlation, tidyverse, magrittr
+   
+
