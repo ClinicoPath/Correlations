@@ -10,6 +10,32 @@ License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.0
-Imports: stats, jmvcore (>= 1.0.8), R6, ggplot2, tidyverse, magrittr
-   
+Imports: 
+    dplyr,
+    ggplot2,
+    glue,
+    janitor,
+    jmvcore (>= 1.0.8),
+    knitr,
+    purrr,
+    R6,
+    tibble,
+    tidyr,
+    irr,
+    magrittr,
+    tidyverse,
+    stats,
+    dplyr
+    
+
+
+
+
+
+
+
+
+
+
+
 
