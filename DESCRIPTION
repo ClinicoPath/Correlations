@@ -25,6 +25,7 @@ Imports:
     magrittr,
     tidyverse,
     stats,
+    correlation,
     dplyr
     
 

@@ -1,15 +1,10 @@
 
 #' Correlation Analysis
 #'
-
-
-#'
-#'
 #' @importFrom R6 R6Class
 #' @import jmvcore
 #' @importFrom magrittr "%>%"
-#' @name %>%
-#' @rdname pipe
+#' @importFrom correlation correlation
 #' @export
 
 # This file is a generated template, your changes will not be overwritten
