@@ -1,16 +1,14 @@
 ---
-title: What the Package Does (Title Case)
+title: Correlations suite for jamovi
 name: Correlations
 version: 0.0.0
 jms: '1.0'
 authors:
-  - Who wrote it
-maintainer: The package maintainer <yourself@somewhere.net>
-date: '1970-01-01'
+  - Hyunsoo Seol
+maintainer: Hyunsoo Seol <snow@cau.ac.kr>
+date: '2020-05-21'
 type: R
-description: >-
-  More about what it does (maybe more than one line) Use four spaces when
-  indenting paragraphs within the Description.
+description: 'Computing various kinds of correlations in jamovi(in progress)'
 analyses:
   - title: Correlation
     name: correlation
