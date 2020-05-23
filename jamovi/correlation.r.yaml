@@ -4,8 +4,13 @@ title: Correlation
 jrs:   '1.1'
 
 items:
-    - name:  text
-      title: Correlation Matrix
-      type:  Preformatted
+
+   - name:  todo
+     title: To Do
+     type:  Html
+
+   - name:  text1
+     title: 'Pearson Correlation'
+     type:  Preformatted
 
 ...

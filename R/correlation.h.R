@@ -6,7 +6,7 @@ correlationOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
     inherit = jmvcore::Options,
     public = list(
         initialize = function(
-            vars = NULL,
+            corrvars = NULL,
             ctrlvars = NULL,
             personCoef = TRUE,
             spearmanCoef = FALSE,
@@ -25,9 +25,9 @@ correlationOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
                 requiresData=TRUE,
                 ...)
 
-            private$..vars <- jmvcore::OptionVariables$new(
-                "vars",
-                vars,
+            private$..corrvars <- jmvcore::OptionVariables$new(
+                "corrvars",
+                corrvars,
                 suggested=list(
                     "nominal",
                     "continuous"),
@@ -84,7 +84,7 @@ correlationOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
                 flgSig,
                 default=TRUE)
 
-            self$.addOption(private$..vars)
+            self$.addOption(private$..corrvars)
             self$.addOption(private$..ctrlvars)
             self$.addOption(private$..personCoef)
             self$.addOption(private$..spearmanCoef)
@@ -98,7 +98,7 @@ correlationOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
             self$.addOption(private$..flgSig)
         }),
     active = list(
-        vars = function() private$..vars$value,
+        corrvars = function() private$..corrvars$value,
         ctrlvars = function() private$..ctrlvars$value,
         personCoef = function() private$..personCoef$value,
         spearmanCoef = function() private$..spearmanCoef$value,
@@ -111,7 +111,7 @@ correlationOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
         shwSig = function() private$..shwSig$value,
         flgSig = function() private$..flgSig$value),
     private = list(
-        ..vars = NA,
+        ..corrvars = NA,
         ..ctrlvars = NA,
         ..personCoef = NA,
         ..spearmanCoef = NA,
@@ -128,7 +128,8 @@ correlationOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
 correlationResults <- if (requireNamespace('jmvcore')) R6::R6Class(
     inherit = jmvcore::Group,
     active = list(
-        text = function() private$.items[["text"]]),
+        todo = function() private$.items[["todo"]],
+        text1 = function() private$.items[["text1"]]),
     private = list(),
     public=list(
         initialize=function(options) {
@@ -136,10 +137,14 @@ correlationResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 options=options,
                 name="",
                 title="Correlation")
+            self$add(jmvcore::Html$new(
+                options=options,
+                name="todo",
+                title="To Do"))
             self$add(jmvcore::Preformatted$new(
                 options=options,
-                name="text",
-                title="Correlation Matrix"))}))
+                name="text1",
+                title="Pearson Correlation"))}))
 
 correlationBase <- if (requireNamespace('jmvcore')) R6::R6Class(
     "correlationBase",
@@ -164,8 +169,8 @@ correlationBase <- if (requireNamespace('jmvcore')) R6::R6Class(
 #' Correlation
 #'
 #' 
-#' @param data .
-#' @param vars .
+#' @param data The data as a data frame.
+#' @param corrvars .
 #' @param ctrlvars .
 #' @param personCoef \code{TRUE} (default) or \code{FALSE}, provide Pearson
 #' @param spearmanCoef \code{TRUE} (default) or \code{FALSE}, provide Spearman
@@ -182,13 +187,14 @@ correlationBase <- if (requireNamespace('jmvcore')) R6::R6Class(
 #' @param flgSig .
 #' @return A results object containing:
 #' \tabular{llllll}{
-#'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
+#'   \code{results$todo} \tab \tab \tab \tab \tab a html \cr
+#'   \code{results$text1} \tab \tab \tab \tab \tab a preformatted \cr
 #' }
 #'
 #' @export
 correlation <- function(
     data,
-    vars,
+    corrvars,
     ctrlvars,
     personCoef = TRUE,
     spearmanCoef = FALSE,
@@ -204,17 +210,17 @@ correlation <- function(
     if ( ! requireNamespace('jmvcore'))
         stop('correlation requires jmvcore to be installed (restart may be required)')
 
-    if ( ! missing(vars)) vars <- jmvcore::resolveQuo(jmvcore::enquo(vars))
+    if ( ! missing(corrvars)) corrvars <- jmvcore::resolveQuo(jmvcore::enquo(corrvars))
     if ( ! missing(ctrlvars)) ctrlvars <- jmvcore::resolveQuo(jmvcore::enquo(ctrlvars))
     if (missing(data))
         data <- jmvcore::marshalData(
             parent.frame(),
-            `if`( ! missing(vars), vars, NULL),
+            `if`( ! missing(corrvars), corrvars, NULL),
             `if`( ! missing(ctrlvars), ctrlvars, NULL))
 
 
     options <- correlationOptions$new(
-        vars = vars,
+        corrvars = corrvars,
         ctrlvars = ctrlvars,
         personCoef = personCoef,
         spearmanCoef = spearmanCoef,

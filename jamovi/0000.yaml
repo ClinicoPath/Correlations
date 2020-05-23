@@ -8,7 +8,7 @@ authors:
 maintainer: Hyunsoo Seol <snow@cau.ac.kr>
 date: '2020-05-21'
 type: R
-description: 'Computing various kinds of correlations in jamovi(in progress)'
+description: Computing various kinds of correlations in jamovi(in progress)
 analyses:
   - title: Correlation
     name: correlation

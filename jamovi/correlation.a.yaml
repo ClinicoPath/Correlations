@@ -8,8 +8,11 @@ menuGroup: Correlations
 options:
     - name: data
       type: Data
+      description:
+          R: >
+            The data as a data frame.
 
-    - name: vars
+    - name: corrvars
       title: Variables
       type: Variables
       suggested:
