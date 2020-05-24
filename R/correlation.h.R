@@ -10,8 +10,8 @@ correlationOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
             ctrlvars = NULL,
             personCoef = TRUE,
             spearmanCoef = FALSE,
-            partialCoef = FALSE,
             TetrachoricCoef = FALSE,
+            partialCoef = FALSE,
             PolychoricCoef = FALSE,
             BiserialCoef = FALSE,
             sidSig = "twotailed",
@@ -48,13 +48,13 @@ correlationOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
                 "spearmanCoef",
                 spearmanCoef,
                 default=FALSE)
-            private$..partialCoef <- jmvcore::OptionBool$new(
-                "partialCoef",
-                partialCoef,
-                default=FALSE)
             private$..TetrachoricCoef <- jmvcore::OptionBool$new(
                 "TetrachoricCoef",
                 TetrachoricCoef,
+                default=FALSE)
+            private$..partialCoef <- jmvcore::OptionBool$new(
+                "partialCoef",
+                partialCoef,
                 default=FALSE)
             private$..PolychoricCoef <- jmvcore::OptionBool$new(
                 "PolychoricCoef",
@@ -88,8 +88,8 @@ correlationOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
             self$.addOption(private$..ctrlvars)
             self$.addOption(private$..personCoef)
             self$.addOption(private$..spearmanCoef)
-            self$.addOption(private$..partialCoef)
             self$.addOption(private$..TetrachoricCoef)
+            self$.addOption(private$..partialCoef)
             self$.addOption(private$..PolychoricCoef)
             self$.addOption(private$..BiserialCoef)
             self$.addOption(private$..sidSig)
@@ -102,8 +102,8 @@ correlationOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
         ctrlvars = function() private$..ctrlvars$value,
         personCoef = function() private$..personCoef$value,
         spearmanCoef = function() private$..spearmanCoef$value,
-        partialCoef = function() private$..partialCoef$value,
         TetrachoricCoef = function() private$..TetrachoricCoef$value,
+        partialCoef = function() private$..partialCoef$value,
         PolychoricCoef = function() private$..PolychoricCoef$value,
         BiserialCoef = function() private$..BiserialCoef$value,
         sidSig = function() private$..sidSig$value,
@@ -115,8 +115,8 @@ correlationOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
         ..ctrlvars = NA,
         ..personCoef = NA,
         ..spearmanCoef = NA,
-        ..partialCoef = NA,
         ..TetrachoricCoef = NA,
+        ..partialCoef = NA,
         ..PolychoricCoef = NA,
         ..BiserialCoef = NA,
         ..sidSig = NA,
@@ -130,7 +130,8 @@ correlationResults <- if (requireNamespace('jmvcore')) R6::R6Class(
     active = list(
         todo = function() private$.items[["todo"]],
         text1 = function() private$.items[["text1"]],
-        text2 = function() private$.items[["text2"]]),
+        text2 = function() private$.items[["text2"]],
+        text3 = function() private$.items[["text3"]]),
     private = list(),
     public=list(
         initialize=function(options) {
@@ -149,7 +150,11 @@ correlationResults <- if (requireNamespace('jmvcore')) R6::R6Class(
             self$add(jmvcore::Preformatted$new(
                 options=options,
                 name="text2",
-                title="Spearman Correlation"))}))
+                title="Spearman Correlation"))
+            self$add(jmvcore::Preformatted$new(
+                options=options,
+                name="text3",
+                title="Tetrachoric Correlation"))}))
 
 correlationBase <- if (requireNamespace('jmvcore')) R6::R6Class(
     "correlationBase",
@@ -179,9 +184,9 @@ correlationBase <- if (requireNamespace('jmvcore')) R6::R6Class(
 #' @param ctrlvars .
 #' @param personCoef \code{TRUE} (default) or \code{FALSE}, provide Pearson
 #' @param spearmanCoef \code{TRUE} (default) or \code{FALSE}, provide Spearman
-#' @param partialCoef \code{TRUE} (default) or \code{FALSE}, provide Partial
 #' @param TetrachoricCoef \code{TRUE} (default) or \code{FALSE}, provide
 #'   Tetrachoric
+#' @param partialCoef \code{TRUE} (default) or \code{FALSE}, provide Partial
 #' @param PolychoricCoef \code{TRUE} (default) or \code{FALSE}, provide
 #'   Polychoric
 #' @param BiserialCoef \code{TRUE} (default) or \code{FALSE}, provide Biserial
@@ -195,6 +200,7 @@ correlationBase <- if (requireNamespace('jmvcore')) R6::R6Class(
 #'   \code{results$todo} \tab \tab \tab \tab \tab a html \cr
 #'   \code{results$text1} \tab \tab \tab \tab \tab a preformatted \cr
 #'   \code{results$text2} \tab \tab \tab \tab \tab a preformatted \cr
+#'   \code{results$text3} \tab \tab \tab \tab \tab a preformatted \cr
 #' }
 #'
 #' @export
@@ -204,8 +210,8 @@ correlation <- function(
     ctrlvars,
     personCoef = TRUE,
     spearmanCoef = FALSE,
-    partialCoef = FALSE,
     TetrachoricCoef = FALSE,
+    partialCoef = FALSE,
     PolychoricCoef = FALSE,
     BiserialCoef = FALSE,
     sidSig = "twotailed",
@@ -230,8 +236,8 @@ correlation <- function(
         ctrlvars = ctrlvars,
         personCoef = personCoef,
         spearmanCoef = spearmanCoef,
-        partialCoef = partialCoef,
         TetrachoricCoef = TetrachoricCoef,
+        partialCoef = partialCoef,
         PolychoricCoef = PolychoricCoef,
         BiserialCoef = BiserialCoef,
         sidSig = sidSig,

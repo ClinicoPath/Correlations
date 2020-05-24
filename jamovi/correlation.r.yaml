@@ -17,5 +17,8 @@ items:
      title: 'Spearman Correlation'
      type:  Preformatted
 
+   - name:  text3
+     title: 'Tetrachoric Correlation'
+     type:  Preformatted
 
 ...

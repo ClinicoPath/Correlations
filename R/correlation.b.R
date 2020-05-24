@@ -6,6 +6,7 @@
 #' @importFrom magrittr "%>%"
 #' @importFrom correlation correlation
 #' @importFrom glue glue
+#' @import psych
 #' @export
 
 # This file is a generated template, your changes will not be overwritten
@@ -50,7 +51,7 @@ correlationClass <- if (requireNamespace('jmvcore')) R6::R6Class(
 
             todo <- glue::glue(
                 "This Module is still under development
-                - Pearson Correlation by Hyunsoo Seol
+                - Correlations by Hyunsoo Seol
                 -
                 "
             )
@@ -91,7 +92,7 @@ correlationClass <- if (requireNamespace('jmvcore')) R6::R6Class(
           #           cor1 <- mydata %>% select(mpg, wt, drat) %>% correlation(.)
 
           #           cor1
-###---------------------------------------
+###--Pearson-------------------------------------
 
           cor1 <- mydata %>%
             select(myvars) %>%
@@ -112,13 +113,23 @@ correlationClass <- if (requireNamespace('jmvcore')) R6::R6Class(
 
 #           self$results$text2$setContent(cor2)
 
-###-------------------------------------------------
+###-------Spearman------------------------------------------
 
           cor2 <- mydata %>%
             select(myvars) %>%
             correlation::correlation(method = "spearman")
 
           self$results$text2$setContent(cor2)
+
+###-----Tetrachoric--------------------------
+
+          cor3 <- mydata %>%
+            select(myvars) %>%
+            correlation::correlation(method = "tetrachoric")
+
+          self$results$text3$setContent(cor3)
+
+
 
 
         }

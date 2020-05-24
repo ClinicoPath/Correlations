@@ -39,11 +39,11 @@ children:
             name: spearmanCoef
             label: Spearman
           - type: CheckBox
-            name: partialCoef
-            label: Partial
-          - type: CheckBox
             name: TetrachoricCoef
             label: Tetrachoric
+          - type: CheckBox
+            name: partialCoef
+            label: Partial
           - type: CheckBox
             name: PolychoricCoef
             label: Polychoric

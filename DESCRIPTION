@@ -26,7 +26,9 @@ Imports:
     tidyverse,
     stats,
     correlation,
-    dplyr
+    dplyr,
+    psych
+  
     
 
 

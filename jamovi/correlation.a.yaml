@@ -45,14 +45,6 @@ options:
           R: >
             `TRUE` (default) or `FALSE`, provide Spearman
 
-    - name: partialCoef
-      title: Partial
-      type: Bool
-      default: false
-      description:
-          R: >
-            `TRUE` (default) or `FALSE`, provide Partial
-
     - name: TetrachoricCoef
       title: Tetrachoric
       type: Bool
@@ -60,6 +52,14 @@ options:
       description:
           R: >
             `TRUE` (default) or `FALSE`, provide Tetrachoric
+
+    - name: partialCoef
+      title: Partial
+      type: Bool
+      default: false
+      description:
+          R: >
+            `TRUE` (default) or `FALSE`, provide Partial
 
     - name: PolychoricCoef
       title: Polychoric

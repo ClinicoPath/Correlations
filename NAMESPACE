@@ -3,6 +3,7 @@
 export(correlation)
 export(correlationClass)
 import(jmvcore)
+import(psych)
 importFrom(R6,R6Class)
 importFrom(correlation,correlation)
 importFrom(glue,glue)
