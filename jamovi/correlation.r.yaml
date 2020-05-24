@@ -13,4 +13,9 @@ items:
      title: 'Pearson Correlation'
      type:  Preformatted
 
+   - name:  text2
+     title: 'Spearman Correlation'
+     type:  Preformatted
+
+
 ...

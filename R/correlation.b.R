@@ -99,7 +99,26 @@ correlationClass <- if (requireNamespace('jmvcore')) R6::R6Class(
 
           self$results$text1$setContent(cor1)
 
+###-------------------------------------------
 
+#           corx <- mydata %>%
+#               dplyr::select(myvars)  %>%
+#               stats::cor.test(method = "spearman", exact = FALSE) %>%
+#               report::report()
+
+#          cor2 <- cor1 %>%
+#               report::report(.)
+
+
+#           self$results$text2$setContent(cor2)
+
+###-------------------------------------------------
+
+          cor2 <- mydata %>%
+            select(myvars) %>%
+            correlation::correlation(method = "spearman")
+
+          self$results$text2$setContent(cor2)
 
 
         }
