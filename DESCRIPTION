@@ -2,7 +2,7 @@ Package: Correlations
 Type: Package
 Title: Correlations suite for jamovi
 Version: 0.1.0
-Date: 2020-05-17
+Date: 2020-06-01
 Author: Hyunsoo Seol
 Maintainer: Hyunsoo Seol <snow@cau.ac.kr>
 Description: Computing various kinds of correlations, such as partial correlation
