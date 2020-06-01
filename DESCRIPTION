@@ -13,7 +13,6 @@ RoxygenNote: 7.1.0
 Imports: 
     dplyr,
     ggplot2,
-    glue,
     janitor,
     jmvcore (>= 1.0.8),
     knitr,

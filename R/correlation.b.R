@@ -5,7 +5,6 @@
 #' @import jmvcore
 #' @importFrom magrittr "%>%"
 #' @importFrom correlation correlation
-#' @importFrom glue glue
 #' @import psych
 #' @export
 
