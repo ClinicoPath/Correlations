@@ -5,9 +5,10 @@ jrs:   '1.1'
 
 items:
 
-   - name:  todo
-     title: To Do
-     type:  Html
+   - name: instructions
+     title: Instructions
+     type: Html
+     visible: True
 
    - name:  text1
      title: 'Pearson Correlation'

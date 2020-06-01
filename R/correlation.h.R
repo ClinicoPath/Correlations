@@ -128,7 +128,7 @@ correlationOptions <- if (requireNamespace('jmvcore')) R6::R6Class(
 correlationResults <- if (requireNamespace('jmvcore')) R6::R6Class(
     inherit = jmvcore::Group,
     active = list(
-        todo = function() private$.items[["todo"]],
+        instructions = function() private$.items[["instructions"]],
         text1 = function() private$.items[["text1"]],
         text2 = function() private$.items[["text2"]],
         text3 = function() private$.items[["text3"]]),
@@ -141,8 +141,9 @@ correlationResults <- if (requireNamespace('jmvcore')) R6::R6Class(
                 title="Correlation")
             self$add(jmvcore::Html$new(
                 options=options,
-                name="todo",
-                title="To Do"))
+                name="instructions",
+                title="Instructions",
+                visible=TRUE))
             self$add(jmvcore::Preformatted$new(
                 options=options,
                 name="text1",
@@ -197,7 +198,7 @@ correlationBase <- if (requireNamespace('jmvcore')) R6::R6Class(
 #' @param flgSig .
 #' @return A results object containing:
 #' \tabular{llllll}{
-#'   \code{results$todo} \tab \tab \tab \tab \tab a html \cr
+#'   \code{results$instructions} \tab \tab \tab \tab \tab a html \cr
 #'   \code{results$text1} \tab \tab \tab \tab \tab a preformatted \cr
 #'   \code{results$text2} \tab \tab \tab \tab \tab a preformatted \cr
 #'   \code{results$text3} \tab \tab \tab \tab \tab a preformatted \cr

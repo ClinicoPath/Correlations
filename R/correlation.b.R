@@ -47,19 +47,23 @@ correlationClass <- if (requireNamespace('jmvcore')) R6::R6Class(
             #varCrr <- self$options$get('corrvars')
             #varCtl <- self$options$get('ctrlvars')
 
-            # TODO
+          self$results$instructions$setContent(
+            "<html>
+            <head>
+            </head>
+            <body>
+            <div class='instructions'>
+            <p>Welcome to Correlations analysis. To get started:</p>
+            <ol>
+            <li> This module is still under development by Hyunsoo Seol<br /><br /></li>
+            </ol>
+            <p>If you encounter any errors, or have questions, please e-mail me: snow@cau.ac.kr</a></p>
+            <p>This is the first release of the module and is subject to change until a peer-reviewed article documenting its use has been published. Anticipated final version release date is late 2020.</a></p>
+            </div>
+            </body>
+            </html>")
 
-            todo <- glue::glue(
-                "This Module is still under development
-                - Correlations by Hyunsoo Seol
-                -
-                "
-            )
-
-            self$results$todo$setContent(todo)
-
-
-            # Data definition--------------
+          # Data definition--------------
 
 
             if (length(self$options$corrvars) < 2)
